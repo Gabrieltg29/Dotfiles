@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
    spec = {
      require('plugins.neo_tree'),
-     require('plugins.neodev')
+     require('plugins.neodev'),
+     require('plugins.telescope'),
    },
 })
