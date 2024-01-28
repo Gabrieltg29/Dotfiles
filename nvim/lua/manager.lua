@@ -16,5 +16,6 @@ require("lazy").setup({
      require('plugins.neo_tree'),
      require('plugins.neodev'),
      require('plugins.telescope'),
+     require('plugins.mason'),
    },
 })
