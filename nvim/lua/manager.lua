@@ -17,5 +17,6 @@ require("lazy").setup({
      require('plugins.neodev'),
      require('plugins.telescope'),
      require('plugins.mason'),
+     require('plugins.cmp'),
    },
 })
