@@ -19,5 +19,6 @@ require("lazy").setup({
      require('plugins.mason'),
      require('plugins.cmp'),
      require('plugins.colorscheme'),
+     require('plugins.treesitter'),
    },
 })
