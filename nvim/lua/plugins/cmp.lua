@@ -7,7 +7,7 @@ return {
     "hrsh7th/cmp-buffer",
   },
   config = function()
-    cmp = require("cmp")
+    local cmp = require("cmp")
     cmp.setup({
       enable=true,
       window = {

@@ -18,5 +18,6 @@ require("lazy").setup({
      require('plugins.telescope'),
      require('plugins.mason'),
      require('plugins.cmp'),
+     require('plugins.colorscheme'),
    },
 })
