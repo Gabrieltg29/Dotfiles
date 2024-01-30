@@ -3,4 +3,5 @@ vim.g.mapleader = ";"
 
 
 require("manager")
+require("autocomands")
 
