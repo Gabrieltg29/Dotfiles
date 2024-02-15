@@ -1,7 +1,4 @@
-vim.go.clipboard = 'unnamedplus'
-vim.g.mapleader = ";"
-
-
 require("manager")
 require("autocomands")
+require("editor")
 
