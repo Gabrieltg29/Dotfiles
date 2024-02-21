@@ -15,6 +15,7 @@ require("lazy").setup({
    spec = {
      require('plugins.neo_tree'),
      require('plugins.neodev'),
+		 require('plugins.neogen'),
      require('plugins.telescope'),
      require('plugins.mason'),
      require('plugins.cmp'),
