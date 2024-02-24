@@ -23,5 +23,6 @@ require("lazy").setup({
 		require("plugins.colorscheme"),
 		require("plugins.format"),
 		require("plugins.mini_comment"),
+		require("plugins.lualine"),
 	},
 })
