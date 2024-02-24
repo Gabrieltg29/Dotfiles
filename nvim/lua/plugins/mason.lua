@@ -38,7 +38,7 @@ return {
 				on_attach = on_attach,
 				settings = {
 					Lua = {
-						diagnostic = {
+						diagnostics = {
 							globals = { "vim" },
 						},
 					},
