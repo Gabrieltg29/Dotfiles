@@ -2,4 +2,4 @@
 
 
 # My nvim
-![Alt text](https://drive.google.com/file/d/1qE1TDMphjpK5WPn2IAN-ijPbm81HB0aX/view?usp=drive_link)
+![](https://github.com/Gabrieltg29/Dotifiles/blob/files/image.jpg?raw=true)
