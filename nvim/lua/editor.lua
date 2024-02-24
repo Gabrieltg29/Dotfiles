@@ -1,6 +1,5 @@
 vim.g.mapleader = ";"
 
-
 local configs = {
 	clipboard = "unnamedplus",
 	relativenumber = true,
@@ -29,6 +28,5 @@ local mappings = {
 }
 
 for _, v in pairs(mappings) do
-		vim.keymap.set(unpack(v))
+	vim.keymap.set(unpack(v))
 end
-

@@ -13,13 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
    spec = {
+		 require('plugins.mason'),
+		 require('plugins.treesitter'),
      require('plugins.neo_tree'),
      require('plugins.neodev'),
 		 require('plugins.neogen'),
      require('plugins.telescope'),
-     require('plugins.mason'),
      require('plugins.cmp'),
      require('plugins.colorscheme'),
-     require('plugins.treesitter'),
+		 require('plugins.format'),
    },
 })
