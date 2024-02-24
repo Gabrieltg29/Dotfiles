@@ -22,5 +22,6 @@ require("lazy").setup({
 		require("plugins.cmp"),
 		require("plugins.colorscheme"),
 		require("plugins.format"),
+		require("plugins.mini_comment"),
 	},
 })
