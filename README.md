@@ -2,4 +2,4 @@
 
 
 # My nvim
-![](https://github.com/Gabrieltg29/Dotifiles/blob/files/image.jpg?raw=true)
+![](https://github.com/Gabrieltg29/Dotfiles/blob/files/docs/neovim.JPG?raw=true)
