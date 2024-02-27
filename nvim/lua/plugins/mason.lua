@@ -26,6 +26,7 @@ return {
 				vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
 				vim.keymap.set("n", "gS", vim.lsp.buf.signature_help, opts)
 				vim.keymap.set("n", "gD", vim.lsp.buf.definition, opts)
+				vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
 			end
 
 			lspconfig["pyright"].setup({
