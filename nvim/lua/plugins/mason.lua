@@ -18,7 +18,7 @@ return {
 			local opts = {}
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			local on_attach = function(client, bufnr)
+			local on_attach = function(_, bufnr)
 				opts.buffer = bufnr
 				vim.print(bufnr)
 				vim.keymap.set("n", "<leader>ee", vim.diagnostic.open_float, opts)
@@ -29,6 +29,11 @@ return {
 			end
 
 			lspconfig["pyright"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig["html"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
