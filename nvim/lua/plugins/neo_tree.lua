@@ -12,10 +12,8 @@ return {
 				width = 30,
 			},
 			source_selector = {
-				winbar = true,
-				statusline = false,
-				show_scrolled_off_parent_node = false,
-				sources = { -- table
+				statusline = true,
+				sources = {
 					{
 						source = "filesystem",
 						display_name = " 󰉓 Files ",
