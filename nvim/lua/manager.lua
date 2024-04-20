@@ -24,5 +24,7 @@ require("lazy").setup({
 		require("plugins.format"),
 		require("plugins.mini_comment"),
 		require("plugins.lualine"),
+		require("plugins.lsp_signature"),
+		require("plugins.rust_acean"),
 	},
 })
