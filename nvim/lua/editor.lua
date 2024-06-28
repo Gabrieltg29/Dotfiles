@@ -25,6 +25,11 @@ local mappings = {
 	{ "n", "<C-k>", ":m .-2<CR>==" },
 	{ "v", "K", ":m '<-2<CR>gv=gv" },
 	{ "v", "J", ":m '>+1<CR>gv=gv" },
+	-- neotree toggle
+	{ "n", "<C-b>", "<Cmd>Neotree toggle<CR>" },
+
+	-- Limpa os caracteres apos o paste M^
+	{ "n", "<C-M>", ":%s/\r//''" },
 }
 
 for _, v in pairs(mappings) do

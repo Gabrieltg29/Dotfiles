@@ -26,5 +26,6 @@ require("lazy").setup({
 		require("plugins.lualine"),
 		require("plugins.lsp_signature"),
 		require("plugins.rust_acean"),
+		require("plugins.golang"),
 	},
 })

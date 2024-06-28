@@ -7,6 +7,7 @@ return {
 				ensure_installed = {
 					"lua_ls",
 					"pyright",
+					"prettier",
 				},
 			}
 		end,
@@ -30,6 +31,11 @@ return {
 			end
 
 			lspconfig["pyright"].setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+
+			lspconfig["zls"].setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
