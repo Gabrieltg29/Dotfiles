@@ -19,7 +19,6 @@ require("lazy").setup({
 		require("plugins.neo_tree"),
 		require("plugins.neogen"),
 		require("plugins.telescope"),
-		require("plugins.cmp"),
 		require("plugins.colorscheme"),
 		require("plugins.format"),
 		require("plugins.mini_comment"),
@@ -27,5 +26,7 @@ require("lazy").setup({
 		require("plugins.lsp_signature"),
 		require("plugins.rust_acean"),
 		require("plugins.golang"),
+		require("plugins.remote_sshfs"),
+		require("plugins.cmp"),
 	},
 })
