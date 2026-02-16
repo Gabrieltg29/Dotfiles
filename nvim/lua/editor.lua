@@ -32,6 +32,7 @@ map("n", "<C-j>", ":m .+1<CR>==", "Move line down")
 map("n", "<C-k>", ":m .-2<CR>==", "Move line up")
 map("v", "K", ":m '<-2<CR>gv=gv", "Move selection up")
 map("v", "J", ":m '>+1<CR>gv=gv", "Move selection down")
+map("n", "<C-b>", "<Cmd>Neotree toggle<CR>", "Toggle Neo-tree")
 map("n", "<leader>cr", "<Cmd>%s/\\r//g<CR>", "Remove carriage returns")
 
 

@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
+	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		{
@@ -50,6 +50,16 @@ return {
 		local actions = require("telescope.actions")
 		local telescope = require("telescope")
 		local themes = require("telescope.themes")
+		local ts_lang = vim.treesitter and vim.treesitter.language
+
+		-- Compat between Telescope and Neovim Treesitter API renames.
+		if ts_lang then
+			if ts_lang.ft_to_lang == nil and type(ts_lang.get_lang) == "function" then
+				ts_lang.ft_to_lang = ts_lang.get_lang
+			elseif ts_lang.get_lang == nil and type(ts_lang.ft_to_lang) == "function" then
+				ts_lang.get_lang = ts_lang.ft_to_lang
+			end
+		end
 
 		telescope.setup({
 			defaults = {
