@@ -50,14 +50,18 @@ return {
 		local actions = require("telescope.actions")
 		local telescope = require("telescope")
 		local themes = require("telescope.themes")
-		local ts_lang = vim.treesitter and vim.treesitter.language
+		local ok_parsers, ts_parsers = pcall(require, "nvim-treesitter.parsers")
 
-		-- Compat between Telescope and Neovim Treesitter API renames.
-		if ts_lang then
-			if ts_lang.ft_to_lang == nil and type(ts_lang.get_lang) == "function" then
-				ts_lang.ft_to_lang = ts_lang.get_lang
-			elseif ts_lang.get_lang == nil and type(ts_lang.ft_to_lang) == "function" then
-				ts_lang.get_lang = ts_lang.ft_to_lang
+		-- Compat between Telescope previewer and newer nvim-treesitter APIs.
+		if ok_parsers and type(ts_parsers.ft_to_lang) ~= "function" then
+			ts_parsers.ft_to_lang = function(ft)
+				if vim.treesitter and vim.treesitter.language and type(vim.treesitter.language.get_lang) == "function" then
+					local ok, lang = pcall(vim.treesitter.language.get_lang, ft)
+					if ok and type(lang) == "string" and lang ~= "" then
+						return lang
+					end
+				end
+				return ft
 			end
 		end
 
