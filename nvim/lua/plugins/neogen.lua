@@ -4,7 +4,7 @@ return {
 	config = true,
 	keys = {
 		{
-			"<leader>cc",
+			"<leader>nc",
 			function()
 				require("neogen").generate({ type = "class" })
 			end,

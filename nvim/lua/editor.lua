@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local configs = {
 	clipboard = "unnamedplus",
 	relativenumber = true,
+	foldmethod = "indent",
 	swapfile = false,
 	colorcolumn = "80",
 	ignorecase = true,
@@ -16,22 +17,26 @@ for k, v in pairs(configs) do
 	vim.opt[k] = v
 end
 
-local mappings = {
-	-- indent and keep selection
-	{ "", ">", ">gv", {} },
-	{ "", "<", "<gv", {} },
-	-- move lines up and down
-	{ "n", "<C-j>", ":m .+1<CR>==" },
-	{ "n", "<C-k>", ":m .-2<CR>==" },
-	{ "v", "K", ":m '<-2<CR>gv=gv" },
-	{ "v", "J", ":m '>+1<CR>gv=gv" },
-	-- neotree toggle
-	{ "n", "<C-b>", "<Cmd>Neotree toggle<CR>" },
-
-	-- Limpa os caracteres apos o paste M^
-	{ "n", "<C-M>", ":%s/\r//''" },
-}
-
-for _, v in pairs(mappings) do
-	vim.keymap.set(unpack(v))
+local function map(mode, lhs, rhs, desc, opts)
+	local options = vim.tbl_extend("force", {
+		noremap = true,
+		silent = true,
+		desc = desc,
+	}, opts or {})
+	vim.keymap.set(mode, lhs, rhs, options)
 end
+
+map({ "n", "v" }, ">", ">gv", "Indent right and keep selection")
+map({ "n", "v" }, "<", "<gv", "Indent left and keep selection")
+map("n", "<C-j>", ":m .+1<CR>==", "Move line down")
+map("n", "<C-k>", ":m .-2<CR>==", "Move line up")
+map("v", "K", ":m '<-2<CR>gv=gv", "Move selection up")
+map("v", "J", ":m '>+1<CR>gv=gv", "Move selection down")
+map("n", "<leader>cr", "<Cmd>%s/\\r//g<CR>", "Remove carriage returns")
+
+
+vim.diagnostic.config(
+	{
+		virtual_text = { current_line = true }
+	}
+)
