@@ -26,6 +26,14 @@ autocmd("FileType", {
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
 
+autocmd({ "BufRead", "BufNewFile" }, {
+	group = "setIndent",
+	pattern = { "*.svelte" },
+	callback = function()
+		vim.bo.filetype = "svelte"
+	end,
+})
+
 autocmd("LspAttach", {
 	callback = function(args)
 		if args.data and args.data.client_id then
