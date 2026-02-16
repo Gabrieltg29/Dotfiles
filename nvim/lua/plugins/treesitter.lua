@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
 	opts = {
 		ensure_installed = {
 			"astro",
@@ -11,17 +12,25 @@ return {
 			"go",
 			"graphql",
 			"http",
+			"javascript",
 			"lua",
 			"java",
 			"php",
+			"python",
 			"rust",
 			"scss",
 			"sql",
 			"svelte",
-			"python",
+			"tsx",
+			"typescript",
 		},
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
+		indent = { enable = true },
 	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
-	end,
+	-- config = function(_, opts)
+	-- 	require("nvim-treesitter.configs").setup(opts)
+	-- end,
 }
