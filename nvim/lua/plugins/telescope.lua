@@ -67,6 +67,11 @@ return {
 
 		telescope.setup({
 			defaults = {
+				preview = {
+					treesitter = {
+						enable = false,
+					},
+				},
 				prompt_prefix = "  ",
 				selection_caret = "  ",
 				path_display = { "smart" },
