@@ -17,6 +17,22 @@ return {
 		{ "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find files" },
 		{ "<leader>fF", "<Cmd>Telescope find_files hidden=true no_ignore=true<CR>", desc = "Find all files" },
 		{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Live grep" },
+		{
+			"<leader>fG",
+			function()
+				local glob = vim.fn.input("Glob pattern (e.g. *.ts): ")
+				if glob == nil or glob == "" then
+					return
+				end
+				require("telescope.builtin").live_grep({
+					prompt_title = "Live grep (" .. glob .. ")",
+					additional_args = function()
+						return { "--hidden", "--glob", glob }
+					end,
+				})
+			end,
+			desc = "Live grep with glob",
+		},
 		{ "<leader>fw", "<Cmd>Telescope grep_string<CR>", desc = "Grep current word" },
 		{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "List buffers" },
 		{ "<leader>fh", "<Cmd>Telescope help_tags<CR>", desc = "Help tags" },
