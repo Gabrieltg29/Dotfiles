@@ -54,7 +54,11 @@ autocmd("FileType", {
 		"zig",
 	},
 	callback = function()
-		pcall(vim.treesitter.start)
+		local ts_ok = pcall(vim.treesitter.start)
+		if not ts_ok and vim.bo.filetype == "svelte" then
+			-- Fallback syntax highlight when parser is missing/unavailable.
+			vim.bo.syntax = "html"
+		end
 		pcall(function()
 			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end)

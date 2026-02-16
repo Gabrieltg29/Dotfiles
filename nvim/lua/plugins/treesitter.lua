@@ -3,6 +3,7 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
+		local install_dir = vim.fn.stdpath("data") .. "/site"
 		local languages = {
 			"astro",
 			"cmake",
@@ -26,7 +27,13 @@ return {
 			"typescript",
 		}
 
-		require("nvim-treesitter").setup({})
-		require("nvim-treesitter").install(languages)
+		require("nvim-treesitter").setup({
+			install_dir = install_dir,
+		})
+
+		local ok, task = pcall(require("nvim-treesitter").install, languages)
+		if ok and task and type(task.wait) == "function" then
+			pcall(task.wait, task, 120000)
+		end
 	end,
 }
