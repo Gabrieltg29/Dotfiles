@@ -13,13 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		require("plugins.autopairs"),
+		require("plugins.autotag"),
 		require("plugins.neodev"),
 		require("plugins.mason"),
 		require("plugins.treesitter"),
 		require("plugins.neo_tree"),
 		require("plugins.neogen"),
 		require("plugins.telescope"),
-		require("plugins.colorscheme"),
+		require("plugins.theme"),
 		require("plugins.format"),
 		require("plugins.mini_comment"),
 		require("plugins.lualine"),
@@ -28,5 +30,11 @@ require("lazy").setup({
 		require("plugins.golang"),
 		require("plugins.remote_sshfs"),
 		require("plugins.cmp"),
+		require("plugins.fidget"),
+		require("plugins.tailwind"),
+		require("plugins.ident_blackline"),
+		require("plugins.glow"),
+		require("plugins.debugger"),
+		require("plugins.copilot")
 	},
 })
