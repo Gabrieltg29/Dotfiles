@@ -54,8 +54,10 @@ autocmd("FileType", {
 		"zig",
 	},
 	callback = function()
-		local ts_ok = pcall(vim.treesitter.start)
-		if not ts_ok and vim.bo.filetype == "svelte" then
+		local has_parser = pcall(vim.treesitter.get_parser, 0)
+		if has_parser then
+			pcall(vim.treesitter.start)
+		elseif vim.bo.filetype == "svelte" then
 			-- Fallback syntax highlight when parser is missing/unavailable.
 			vim.bo.syntax = "html"
 		end

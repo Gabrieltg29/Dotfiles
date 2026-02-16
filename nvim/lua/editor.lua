@@ -16,6 +16,7 @@ local configs = {
 for k, v in pairs(configs) do
 	vim.opt[k] = v
 end
+vim.cmd("syntax enable")
 
 local function map(mode, lhs, rhs, desc, opts)
 	local options = vim.tbl_extend("force", {
