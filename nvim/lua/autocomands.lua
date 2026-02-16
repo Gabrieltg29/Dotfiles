@@ -34,6 +34,33 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+autocmd("FileType", {
+	group = "setIndent",
+	pattern = {
+		"astro",
+		"css",
+		"go",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"lua",
+		"python",
+		"rust",
+		"svelte",
+		"typescript",
+		"typescriptreact",
+		"vue",
+		"zig",
+	},
+	callback = function()
+		pcall(vim.treesitter.start)
+		pcall(function()
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		end)
+	end,
+})
+
 autocmd("LspAttach", {
 	callback = function(args)
 		if args.data and args.data.client_id then
