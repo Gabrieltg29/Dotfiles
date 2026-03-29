@@ -2,7 +2,7 @@ local lsp_servers = {
 	"lua_ls",
 	"pyright",
 	"vtsls",
-	"volar",
+	"vue_ls",
 	"angularls",
 	"svelte",
 	"tailwindcss",
@@ -143,7 +143,7 @@ return {
 					},
 				},
 			}
-			local volar_settings = {
+			local vue_ls_settings = {
 				filetypes = { "vue" },
 			}
 
@@ -158,7 +158,7 @@ return {
 				vim.lsp.config("lua_ls", lua_ls_settings)
 				vim.lsp.config("pyright", pyright_settings)
 				vim.lsp.config("vtsls", vtsls_settings)
-				vim.lsp.config("volar", volar_settings)
+				vim.lsp.config("vue_ls", vue_ls_settings)
 				vim.lsp.enable(lsp_servers)
 				return
 			end
@@ -176,8 +176,8 @@ return {
 					opts = vim.tbl_deep_extend("force", opts, pyright_settings)
 				elseif server == "vtsls" then
 					opts = vim.tbl_deep_extend("force", opts, vtsls_settings)
-				elseif server == "volar" then
-					opts = vim.tbl_deep_extend("force", opts, volar_settings)
+				elseif server == "vue_ls" then
+					opts = vim.tbl_deep_extend("force", opts, vue_ls_settings)
 				end
 				lspconfig[server].setup(opts)
 			end

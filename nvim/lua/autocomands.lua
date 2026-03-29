@@ -57,13 +57,13 @@ autocmd("FileType", {
 		local has_parser = pcall(vim.treesitter.get_parser, 0)
 		if has_parser then
 			pcall(vim.treesitter.start)
+			pcall(function()
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end)
 		elseif vim.bo.filetype == "svelte" then
 			-- Fallback syntax highlight when parser is missing/unavailable.
 			vim.bo.syntax = "html"
 		end
-		pcall(function()
-			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-		end)
 	end,
 })
 
